@@ -1,0 +1,31 @@
+.v-index-page
+	width 100%
+	height 100%
+	animation fadeIn 0.8s
+
+	.v-intro-text
+		position absolute
+		width 30%
+		left 20px
+		top 15%
+
+	.v-bag-submit
+		position fixed
+		right 20px
+		bottom 20px
+		width 150px
+
+	&.-config
+		.v-bag
+			transform none
+
+	.v-bag
+		transition transform 1s
+		transform translate(30%,-30%)
+
+.v-bag-chooser-wrapper
+	position fixed
+	bottom 0
+	left 0
+	right 0
+	height 0

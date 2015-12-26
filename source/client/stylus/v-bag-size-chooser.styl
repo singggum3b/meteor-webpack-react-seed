@@ -1,0 +1,114 @@
+$toggler-height = 3.5em
+$arrow-color = #494e5f
+$bg-gradient = #f5f7f8
+
+.v-bag-size-chooser
+	text-align center
+	font-size 0.75em
+	color black
+	position fixed
+	bottom 0
+	left 0
+	right 0
+	transition all 1s
+	z-index 1
+	background-color white;
+
+	&.hidden
+		transform translateY(100%)
+		.toggler
+			.content
+				&:before
+					transform rotate(-45deg)
+					top (0.5 * $toggler-height)
+	.wrapper
+		background-color white
+		background-image linear-gradient(to bottom, white, $bg-gradient)
+		padding 0.5em 0 0
+
+	.title
+		text-transform uppercase
+		font-size 1.125em
+		padding 1em 0 0.5em
+		font-weight 700
+	.list
+		display block
+		list-style none
+		margin 0
+		padding 0
+	.size
+		ratio-box(1/1)
+		display inline-block
+		width 160px
+
+		margin 0 0.5em
+		cursor pointer
+
+		&.active
+			animation pulse 0.5s
+			background-color white
+			// background-image linear-gradient(to bottom, white, $bg-gradient)
+			box-shadow -25px 0px 40px -40px rgba(black, 0.5), 25px 0px 40px -40px rgba(black, 0.5)
+
+		.size-content
+			position absolute
+			bottom 0
+
+		.size-title
+			margin 0 0 10px
+			text-transform uppercase
+			font-family $font-headline, Times, serif
+			font-weight normal
+			font-size 12px;
+
+
+		&.size--small
+			img
+				width 60%
+
+		&.size--medium
+			img
+				width 75%
+
+		&.size--large
+			img
+				width 90%
+				transform scale(1)
+		img
+			display block
+			width 100%
+			margin-left auto
+			margin-right auto
+
+	.toggler
+		height 0
+		position absolute
+		top -($toggler-height)
+		margin-left auto
+		margin-right auto
+		width 100%
+		z-index -1
+		.content
+			margin-left auto
+			margin-right auto
+			background-color white
+			color white
+			border-radius 50%
+			width (2 * $toggler-height)
+			height (2 * $toggler-height)
+			line-height $toggler-height
+			position relative
+			cursor pointer
+			&:before
+				position absolute
+				top (0.125 * $toggler-height)
+				left (0.75 * $toggler-height)
+				content ""
+				display inline-block
+				width (0.5 * $toggler-height)
+				height (0.5 * $toggler-height)
+				border-right (0.04 * $toggler-height) solid $arrow-color
+				border-top (0.04 * $toggler-height) solid $arrow-color
+				transform rotate(135deg)
+				transition all 1s
+				cursor pointer

@@ -1,0 +1,54 @@
+.v-submit-page
+	position absolute 0 0 0 0
+	background-color rgba(black,0.3)
+	z-index 9
+
+	.v-submit-form
+		position absolute
+		top 50%
+		left 50%
+		transform translate(-50%,-50%)
+		background-color white
+		padding 10px
+		box-shadow 0 0 0.5em 0.1em rgba(black,0.5)
+		
+		.title
+			margin-top 0
+			margin-bottom 10px
+
+		.back
+			.button
+				padding-left 10px
+				&:before
+					content none
+
+		.action .mailto
+			cursor not-allowed
+			&:hover
+				border-color grey
+
+			a
+				pointer-events none
+				opacity 0.5
+
+		&.validated
+			.action .mailto
+				cursor pointer
+				a
+					pointer-events auto
+					opacity 1
+
+		.b-field
+			margin 5px 0
+			display block
+
+			input, textarea
+				width 100%
+				background-color white
+				border 1px solid gray
+				font-size 1em
+
+	ul
+		padding-left 20px
+		li
+			font-size 1em
