@@ -11,6 +11,5 @@ blaze-html-templates    # Compile .html files into Meteor Blaze views
 session                 # Client-side reactive dictionary for your app
 tracker                 # Meteor's client-side reactive programming library
 
-
 singgum3b:webpack
 standard-minifiers

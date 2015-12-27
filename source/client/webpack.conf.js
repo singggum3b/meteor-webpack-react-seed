@@ -1,6 +1,9 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var autoprefixer = require("autoprefixer");
+var poststylus = require("poststylus");
+
 var babelSettings = {
 	presets: ['react', 'es2015', 'stage-0'],
 	cacheDirectory: undefined
@@ -22,7 +25,6 @@ if (process.env.NODE_ENV !== 'production' && !process.env.IS_MIRROR) {
 	}]);
 }
 
-var cssLoader;
 var plugins = [
 	new webpack.PrefetchPlugin(undefined, "jquery"),
 	new webpack.PrefetchPlugin(undefined, "react"),
@@ -45,11 +47,23 @@ var plugins = [
 	}*/
 ];
 
+var browserSupport = [
+	"last 2 Chrome versions",
+	"ff >= 25",
+	"last 2 iOS versions",
+	"last 2 Safari versions",
+	"ie >= 10"
+];
+
+var postCSS = [autoprefixer({browsers: browserSupport})];
+
+var cssLoader;
 if (process.env.NODE_ENV === 'production') {
 	plugins.push(new ExtractTextPlugin('style.css', { allChunks: true }));
-	cssLoader = ExtractTextPlugin.extract('style', 'css?module&localIdentName=[hash:base64:5]');
+	cssLoader = ExtractTextPlugin.extract('style', 'css?sourceMap!stylus');
 } else {
-	cssLoader = 'style!css?module&localIdentName=[name]__[local]__[hash:base64:5]';
+	plugins.push(new ExtractTextPlugin('style.css', { allChunks: true }));
+	cssLoader = ExtractTextPlugin.extract('style', 'css?sourceMap!stylus');
 }
 
 module.exports = {
@@ -64,6 +78,7 @@ module.exports = {
 		//need common prefix if this's common chunk
 		"common-vendor": ["jquery","react","react-router","react-canvas","history","nuclear-js"]
 	},
+	devtool: "source-map",
 	resolve: {
 		// Tell webpack to look for required files in bower and node
 		modulesDirectories: ['../../custom_modules', '../../node_modules', '../../source/client']
@@ -77,7 +92,7 @@ module.exports = {
 		loaders: [
 			{ test: /\.htm/, loader: "html" },
 			{ test: /\.js?$/, loader: 'babel', query: babelSettings, exclude: /node_modules/ },
-			{ test: /\.css$/, loader: cssLoader },
+			{ test: /\.styl$/, loader: cssLoader },
 			{ test: /\.(png|gif|jpe?g|ico)(\?.*)?$/, loader: 'url?limit=8182' },
 			{ test: /\.(svg|ttf|woff|eot)(\?.*)?$/, loader: 'file' }
 		],
@@ -85,6 +100,16 @@ module.exports = {
 			{test: /linebreak/, loader: "transform?brfs"}
 		],
 		noParse: /\.min\.js/
+	},
+	stylus: {
+		"include css": true,
+		sourceMap:{
+			"comment": true,
+			basePath: ".",
+			sourceRoot: "./stylus"
+		},
+		filename: "style.styl",
+		use: [require("jeet")(), require("kouto-swiss")(), poststylus(postCSS)]
 	},
 	plugins: plugins
 };

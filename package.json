@@ -5,6 +5,8 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "animate.css": "^3.4.0",
+    "autoprefixer": "^6.2.2",
     "babel-core": "^6.3.21",
     "babel-loader": "^6.2.0",
     "babel-plugin-react-transform": "^2.0.0-beta1",
@@ -22,11 +24,15 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
     "glob-filename-loader": "git+https://github.com/singggum3b/glob-filename-loader.git",
+    "google-material-color": "^1.2.6",
     "history": "^1.13.1",
     "html-loader": "^0.4.0",
+    "jeet": "^6.1.2",
     "jquery": "^2.1.4",
+    "kouto-swiss": "^0.11.14",
     "nuclear-js": "git+https://github.com/optimizely/nuclear-js.git",
     "null-loader": "^0.1.1",
+    "poststylus": "^0.2.2",
     "progress-bar-webpack-plugin": "^1.2.0",
     "react": "^0.14.3",
     "react-addons-css-transition-group": "^0.14.3",
@@ -38,12 +44,14 @@
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.2.0",
     "style-loader": "^0.13.0",
+    "stylus-loader": "^1.4.2",
     "superagent": "^1.6.1",
     "superagent-defaults": "^0.1.14",
     "throttle-debounce": "^0.1.1",
     "transform-loader": "^0.2.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "webpack-hot-middleware": "^2.6.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

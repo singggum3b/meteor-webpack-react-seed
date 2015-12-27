@@ -5,13 +5,13 @@ var webpack = require('webpack'),
 module.exports = {
 	devServer: {
 		// You can change this to your server IP address to access it remotely
-		host: '192.168.10.14'
+		host: 'localhost'
 	},
 	hotMiddleware: {
 		reload: true
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx', '.json', '.css', '.styl']
+		extensions: ['.js', '.jsx', '.json', '.styl']
 	},
 	plugins: [
 		new ProgressBarPlugin()

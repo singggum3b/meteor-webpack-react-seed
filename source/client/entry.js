@@ -1,4 +1,6 @@
+require("./stylus/style.styl");
 require("./js/lib.entry");
+
 const {IndexRoute, Route} = ReactRouter;
 
 //=====================================================

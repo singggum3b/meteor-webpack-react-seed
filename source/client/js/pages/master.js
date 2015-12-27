@@ -21,10 +21,10 @@ var App = React.createClass({
 		}
 	},
 	render() {
-		console.log("[dss--kbgk--jjkvbvj-vesz-dfdffd");
+		console.log("[dss--kbgk--asasdf");
 		return this.state.imagesLoaded ? (
 				<div className="content">
-					<Dialog dialog={this.state.dialog}></Dialog>
+					<Dialog dialog={this.state.dialog} />
 					{this.props.children && React.cloneElement(this.props.children, {
 						device: this.state.device
 					})}
