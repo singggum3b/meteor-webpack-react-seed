@@ -105,8 +105,7 @@ module.exports = {
 		"include css": true,
 		sourceMap:{
 			"comment": true,
-			basePath: ".",
-			sourceRoot: "./stylus"
+			basePath: __dirname
 		},
 		filename: "style.styl",
 		use: [require("jeet")(), require("kouto-swiss")(), poststylus(postCSS)]
