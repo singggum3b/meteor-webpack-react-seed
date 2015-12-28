@@ -9,7 +9,7 @@ $color-primary = "Blue"
 $color-secondary = "Red"
 $color-neutral = "Blue Grey"
 $color-black = "Black"
-$color-body = #d9e1e4;
+$color-body = "Red";
 
 box-sizing-reset()
 normalize()
@@ -44,10 +44,7 @@ body
 	width 100vw
 	height 100vh
 	margin 0
-	background-color $color-body
-	// background-image linear-gradient(to bottom right, white, $color-body)
-	background url("/img/bg-body-gradient.jpg")
-	background-size cover
+	background-color palette($color-body)
 	overflow hidden
 	position relative
 	padding 0

@@ -21,7 +21,7 @@ var App = React.createClass({
 		}
 	},
 	render() {
-		console.log("[dss--kbgk--asasdf");
+		console.log("[dss--kbgk");
 		return this.state.imagesLoaded ? (
 				<div className="content">
 					<Dialog dialog={this.state.dialog} />

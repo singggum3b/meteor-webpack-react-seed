@@ -2,7 +2,7 @@ var actionTypes = require("./constant").action;
 
 var BagStore = new Nuclear.Store({
 	getInitialState: function () {
-		return require("./bag-data.js").getData("medium").merge(
+		return require("js/data/bag-data").getData("medium").merge(
 				Immutable.fromJS({
 					dialog: undefined,
 					customerComment: "",
@@ -73,7 +73,7 @@ var BagStore = new Nuclear.Store({
 		this.on(actionTypes.UPDATE_BAGDATA, function (state, payload) {
 			if (payload.size) {
 				return state.update("bagData", function (oldbagData) {
-					return require("./bag-data.js").getData(payload.size.get("type")).get("bagData");
+					return require("js/data/bag-data").getData(payload.size.get("type")).get("bagData");
 				});
 			} else return state;
 		});

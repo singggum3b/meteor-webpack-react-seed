@@ -89,3 +89,13 @@ $(function () {
 	$(wrapper).html(require("!!html!stylus/SVGfilter.svg"));
 	$("body").append(wrapper);
 });
+
+//=======================Touch detect========================================
+$.TOUCH_DEVICE = function () {
+	var result = (("ontouchstart" in window) || (navigator.msMaxTouchPoints > 0));
+	return !!result;
+}();
+
+if ($.TOUCH_DEVICE) {
+	$("html").addClass("touch");
+}
